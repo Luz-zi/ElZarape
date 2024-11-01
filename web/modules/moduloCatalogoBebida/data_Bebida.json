@@ -1,0 +1,42 @@
+[
+    {
+        "idBebida": "1",
+        "nombre": "Coca Cola",
+        "descripcion": "Refresco de cola marca Coca-Cola 500ml",
+        "precio": "$20",
+        "categoria":"Refresco",
+        "estatus": "Activo",
+        "foto":"recursos/coca.png"
+        
+     
+    },
+    {
+        "idBebida": "2",
+        "nombre": "Agua Natural",
+        "descripcion": "Agua purificada de 600ml",
+        "precio": "$15",
+        "categoria":"Agua",
+        "estatus": "Activo",
+        "foto":"recursos/baratita.png"
+        
+    },
+    {
+        "idBebida": "3",
+        "nombre": "Del Valle",
+        "descripcion": "Jugo marca del valle sabor naranja 500ml",
+        "precio": "$16",
+        "categoria":"Jugo",
+        "estatus": "Activo",
+        "foto":"recursos/delvalle-.png"
+    },
+    {
+        "idBebida": "4",
+       "nombre": "Cafe Americano",
+        "descripcion": "taza de cafe caliente tipo americano de 455ml",
+        "precio": "$25",
+        "categoria":"Cafe",
+        "estatus": "Activo",
+        "foto":"recursos/americano.png"
+    }
+]
+

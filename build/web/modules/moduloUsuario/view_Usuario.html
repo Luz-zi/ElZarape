@@ -1,0 +1,186 @@
+<!-- Encabezado -->
+<div class="container-fluid row d-flex justify-content-md-center moudlo">
+    <!-- Título del Módulo -->
+    <div>
+        <table class="header-table tabla">
+            <tr>
+                <td>
+                    <h6 class="palabraClave">¿QUÉ ES LO QUE DESEA HACER?</h6>
+                    <h1>USUARIO</h1>
+                </td>
+                <td colspan="12">
+                    <div class="input-group">
+                        <button class="btn btn-outline-secondary botonAzul" onclick="moduloUsuario.searchUsuario();">
+                            <i class="bi bi-search"></i> Buscar
+                        </button>
+                        <input type="text" id="txtBusquedaUsuario" class="form-control buscar"
+                            aria-label="Text input with segmented dropdown button">
+                        <!-- Filtro de búsqueda según el nombre del empleado -->
+                        <select class="filtro" id="filtroPor">
+                            <option value="nombre">Nombre</option>
+                        </select>
+                        <!-- Botón para limpiar la barra de búsqueda -->
+                        <button class="btn btn-outline-secondary"
+                            onclick="moduloUsuario.loadTabla();moduloUsuario.clean();">
+                            <i class="bi bi-x-circle"> Borrar</i>
+                        </button>
+                        <!-- Botón para imprimir los resultados de búsqueda -->
+                        <button class="btn btn-outline-secondary" id="imprimirBtn" onclick="moduloUsuario.imprimir();">
+                            <i class="bi bi-printer"></i> Imprimir
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="card col-lg-4 m-2 p-2">
+        <table class="col-lg-2 m-2 p-2">
+                <tr>
+                <td>
+                    <h2>Gestión</h2></td>
+                <td></td>
+                <td>
+                    <h2 class="palabraClaveVerde";">Usuarios</h2>
+                </td>
+            </tr>
+        </table>
+        <div class="row g-3 formularioVerde d-flex justify-content-around mt-2">
+
+            <div class="col-md-6">
+                <label for="txtNumUnico" class="mt-2">ID Usuario</label><br>
+                <input id="txtNumUnico" type="text" readonly class="mt-2 inputs">
+            </div>
+            <div class="col-md-6">
+                <label for="txtNombre" class="mt-2">Nombre Usuario</label><br>
+                <input id="txtNombre" type="text" class="mt-2 inputs">
+            </div>
+            <div class="col-md-6">
+                <label for="txtCon" class="mt-2">Contraseña</label><br> 
+                <input id="txtCon" type="text" class="mt-2 inputs">
+            </div>
+
+
+
+            <div class="d-flex justify-content-around mt-2">
+                    <!--Boton Limpiar-->
+                <button class="btn btn-outline-secondary botonRojo" onclick="moduloUsuario.clean()" id="btnClean"><i
+                    class="bi bi-x-circle"></i> Limpiar</button>
+                    <!--Boton Registrar-->
+                    <button class="btn btn-outline-secondary botonVerde" data-bs-target="#emergenteC3  " data-bs-toggle="modal"
+                    onclick="moduloUsuario.addUsuario();" id="btnAdd"><i class="bi bi-plus-circle"></i> Registrar</button>
+                    <!--Boton Actualizar-->
+                    <button class="btn btn-outline-secondary disabled botonVerde" data-bs-target="#emergenteActualizar"
+                data-bs-toggle="modal" id="btnUpdate"><i class="bi bi-arrow-up-circle"></i> Actualizar</button>
+                <!--Boton Eliminar-->
+                <button class="btn btn-outline-secondary disabled botonRojo" data-bs-target="#emergenteEliminar"
+                data-bs-toggle="modal" id="btnDelete2"><i class="bi bi-trash"></i> Eliminar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="card col-lg-7 p-2 m-2">
+        <table class="table table-responsive tabla">
+            <thead>
+                <tr>
+                    <th style="background: #ADDC57;">ID Usuario</th>
+                    <th style="background: #ADDC57;">Nombre Usuario</th>
+                    <th style="background: #ADDC57;">Contraseña</th>
+                    <th style="background: #ADDC57;">Estátus</th>
+                </tr>
+            </thead>
+            <tbody id="tblUsuario">
+            </tbody>
+        </table>
+    </div>
+</div>
+<!--EMERGENTE PARA ELIMINAR-->
+<div class="modal fade" id="emergenteEliminar" aria-labelledby="exampleModalToggleLabel" tabindex="-1"
+    aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalToggleLabel">¡Eliminar Registro!</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Estas seguro de que quieres eliminar este registro
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#" onclick="moduloUsuario.clean();"
+                    data-bs-toggle="modal">Cancelar</button>
+                <button class=" btn btn-primary" data-bs-toggle="modal" data-bs-target="#emergenteC"
+                    onclick="moduloUsuario.deleteUsuario();" id="btnDelete">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--EMERGENTE DE CONFIRMACION -->
+<div class="modal fade" id="emergenteC" aria-labelledby="exampleModalToggleLabel" tabindex="-1" aria-hidden="true"
+    style="display: none;">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div style="text-align:center" class="modal-body">
+                <i style="font-size: 150px; color: green;" class="bi bi-check2-circle"></i>
+                <h3>Registro Eliminado</h3>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#" data-bs-toggle="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--EMERGENTE DE ACTUALIZAR-->
+<div class="modal fade" id="emergenteActualizar" aria-labelledby="exampleModalToggleLabel" tabindex="-1"
+    aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalToggleLabel">¡Actualizar Registro!</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Estas seguro de que quieres Actualizar este registro
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#" onclick="moduloUsuario.clean();"
+                    data-bs-toggle="modal">Cancelar</button>
+                <button class=" btn btn-primary" data-bs-toggle="modal" data-bs-target="#emergenteC2"
+                    onclick="moduloUsuario.updateUsuario();" id="btnDelete">Actualizar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--EMERGENTE DE CONFIRMACION DE ACTUALIZACION -->
+<div class="modal fade" id="emergenteC2" aria-labelledby="exampleModalToggleLabel" tabindex="-1" aria-hidden="true"
+    style="display: none;">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div style="text-align:center" class="modal-body">
+                <i style="font-size: 150px; color: green;" class="bi bi-check2-circle"></i>
+                <h3>Registro Actualizado</h3>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#" data-bs-toggle="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--EMERGENTE DE CONFIRMACION DE REGISTRO-->
+<div class="modal fade" id="emergenteC3" aria-labelledby="exampleModalToggleLabel" tabindex="-1" aria-hidden="true"
+    style="display: none;">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div style="text-align:center" class="modal-body">
+                <i style="font-size: 150px; color: green;" class="bi bi-check2-circle"></i>
+                <h3>Registro Agregado</h3>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#" data-bs-toggle="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

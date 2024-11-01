@@ -1,0 +1,52 @@
+[
+    {
+        "idSucursal": "001",
+        "nombre": "CentroMax",
+        "calle": "Blvd. Adolfo López Mateos",
+        "numInt": " #2518",
+        "numExt": "8A",
+        "colonia": "Jardines de Jerez ",
+        "CP": "37530",
+        "GPSLatitud": "21.10031838937548,",
+        "GPSLongitud": " -101.63582989077983",
+        "horarioApertura": "10:00am",
+        "horarioCierre": "8:00pm",
+        "URLPagina": "www.ElZarape.com",
+        "estatus": "Activo",
+        "foto":"recursos/centroMax.jpg"
+        
+    },
+    {
+        "idSucursal": "002",
+        "nombre": "Altacia",
+        "calle": "Blvd Aeropuerto",
+        "numInt": " #104",
+        "numExt": "8A",
+        "colonia": "Cerrito de Jerez ",
+        "CP": "37545",
+        "GPSLatitud": "21.09302797013851,",
+        "GPSLongitud": " -101.62604970427213",
+        "horarioApertura": "11:00am",
+        "horarioCierre": "8:00pm",
+        "URLPagina": "www.ElZarape.com",
+        "estatus": "Activo",
+        "foto":"recursos/Altacia.jpg"
+ 
+    },
+    {
+        "idSucursal": "003",
+        "nombre": "Plaza Mayor",
+        "calle": "Juan Alonso de torres",
+        "numInt": "#2002",
+        "numExt": "8A",
+        "colonia": "Valle del campestre  ",
+        "CP": "37150",
+        "GPSLatitud": "21.157984000755956,",
+        "GPSLongitud": "-101.69518397116403",
+        "horarioApertura": "11:00am",
+        "horarioCierre": "8:00pm",
+        "URLPagina": "www.ElZarape.com",
+        "estatus": "Activo",
+        "foto":"recursos/plazaMayot.jpg"
+    }
+]

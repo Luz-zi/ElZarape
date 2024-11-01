@@ -1,0 +1,251 @@
+.imagenMenu
+{
+ width: 180px;
+}
+.iconos {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 50px;
+    display: flex;
+
+}
+.iconoAmarillo {
+    width: 250px;
+    height: 250px;
+    background-color: #F4EC6A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    border-radius: 10%;
+}
+.iconoVerde {
+    width: 250px;
+    height: 250px;
+    background-color: #BBCF4A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    border-radius: 10%;
+}
+
+.iconoRojo {
+    width: 250px;
+    height: 250px;
+    background-color: #E73F0B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    border-radius: 10%;
+}
+
+.iconoGuinda {
+    width: 250px;
+    height: 250px;
+    background-color: #A11F0C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    border-radius: 10%;
+}
+
+.footer {
+    background-color: #f4ed6ab9;
+}
+.formularioAmarillo {
+    background: #f4ed6abb;
+    border-radius: 10px;
+}
+
+.formularioGuinda {
+    background: #E73F0B80;
+    border-radius: 10px;
+}
+.formularioVerde {
+    background: #D7E59D;
+    border-radius: 10px;
+}
+.formularioRojo{
+    background: #a1200c8b;
+    border-radius: 10px;
+}
+.imagenPerfil{
+    width: 50px;
+}
+
+.palabraclave {
+    color: #A11F0C;
+}
+.palabraclaveVerde {
+    color:  #ADC64F;
+    font-family: Arial;
+}
+
+
+/*.buscar {
+    border-radius: 20px;
+    width: 100%; 
+}*/
+
+.buscarbtn {
+    border-radius: 10px;
+    background: #F4EC6A;
+    width: 100%;
+    height: 100%;
+
+
+}
+
+
+.inputs {
+    border-radius: 10px;
+}
+.tabla {
+    width: 100%;
+    border: 1px;
+
+}
+.mi-tabla {
+    border-collapse: separate;
+    border-spacing: 3px;
+    border: solid black 1px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.divs {
+    background-color: rgba(255, 0, 0, 0);
+    border: #c2101000;
+
+}
+
+.botonRojo {
+    color: rgba(0, 0, 0, 0.793);
+    background: #e73e0b;
+}
+
+.actualizarbtn {
+    border-radius: 10px;
+    width: 50px;
+    background: #e73e0b9b;
+}
+
+.registrarbtn {
+    border-radius: 10px;
+    width: 50px;
+    background: #e73e0b9b;
+}
+
+.limpiarbtn {
+    border-radius: 10px;
+    width: 50px;
+    background: #e73e0b9b;
+}
+
+.filtro {
+    border-radius: 15px;
+}
+
+.imagenesTabla{
+    border-radius: 15px;
+    width: 60px;
+    height: 60px;
+}
+.botonVerde{
+    color: rgba(0, 0, 0, 0.793);
+    background-color: yellowgreen;
+}
+.botonAzul{
+    color: rgba(0, 0, 0, 0.793);
+    background-color: rgb(127, 236, 222);
+}
+.imag{
+    width: 50px;
+    height: 50px;
+}
+.modulo{
+    margin-top: 50px;
+}
+.Estatus{
+    text-align: center;
+}
+
+
+.categoria {
+    width: 190px;
+}
+
+
+/* lucero */
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-left: 100px;
+}
+.form {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f4ed6a8a;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.311);
+    border-radius: 8px;
+    margin-left: 60px;
+
+    width: 70%;
+
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+.labelIndex {
+    display: block;
+    margin-bottom: 5px;
+}
+.inputIndex {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.buttonIndex {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+
+.footer{
+    background-color: #F4EC6A;
+    color: #F4EC6A;
+}
+.nav{
+    width:100%;
+    background: #f4ec6a;
+}
+.imagenicono{
+    width: 50px; 
+    height:50px;
+
+
+}
+.titulo{
+    margin-top: 5px;
+
+}
+.imagenInicio{
+    display: flex;
+    width: 100%;
+}

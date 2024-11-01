@@ -1,0 +1,219 @@
+<!-- Modulo de Sucursal -->
+<div class="container-fluid row d-flex justify-content-md-center modulo">
+    <!--Encabezado-->
+    <!--TItulo de el Modulo-->
+    <div>
+        <table class="tabla">
+            <td>
+                <h6 class="palabraClave">¿QUÉ ES LO QUE DESEA HACER?</h6>
+                <h1>SUCURSALES</h1>
+            </td>
+            <td colspan="12">
+                <!--Seccion buscar-->
+                <div class="input-group">
+                    <button class="btn btn-outline-secondary botonAzul" onclick="moduloSucursal.searchSucursal();"><i
+                            class="bi bi-search"></i> buscar</button>
+                    <input type="text" id="txtBusquedaSucursal" class=" form-control buscar"
+                        aria-label="Text input with segmented dropdown button">
+                    <!--Filtro-->
+                    <select class="filtro" id="filtroPor">
+                        <option value="">ID</option>
+                        <option value="nombre">Nombre</option>
+                        <option value="ubicacion">Ubicación</option>
+                    </select>
+
+                    <button class="btn btn-outline-secondary "onclick="moduloSucursal.loadTabla();moduloSucursal.clean();"><i class="bi bi-x-circle">Limpiar</i></button>
+                    <button class="btn btn-outline-secondary " id="imprimirBtn" onclick="moduloSucursal.imprimir();"><i class="bi bi-printer"></i> Imprimir</button>
+                </div>
+            </td>
+        </table>
+    </div>
+    <!--Seccion de formulario-->
+    <div class="card col-lg-4 m-2 p-2 ">
+        <table class=" col-lg-2 m-2 p-2">
+            <tr>
+                <td>
+                    <h2>Gestión </h2>
+                </td>
+                <td></td>
+                <td>
+                    <h2 class="palabraClave"> Sucursales</h2>
+                </td>
+            </tr>
+        </table>
+        <div class="row g-3 formularioGuinda d-flex justify-content-around mt-2">
+            <div class="col-md-6">
+                <label for="txtNumUnico" class="mt-2 ">ID Sucursal</label><br>
+                <input id="txtNumUnico" type="text" readonly class="mt-2 inputs">
+            </div>
+            <div class="col-md-6">
+                <label for="txtNombre" class="mt-2">Nombre Sucursal:</label><br>
+                <input id="txtNombre" type="text" class="mt-2 inputs">
+            </div>
+            <div class="col-md-6">
+                <label for="txtCalle" class="mt-2">Calle:</label><br>
+                <input id="txtCalle" type="text" class="mt-2 inputs">
+            </div>
+            <div class="col-md-6">
+                <label for="txtNumInt" class="mt-2">Número Int:</label><br>
+                <input id="txtNumInt" type="text" class="mt-2 inputs">
+            </div>
+            <div class="col-md-6">
+                <label for="txtNumExt" class="mt-2">Número Ext:</label><br>
+                <input id="txtNumExt" type="text" class="mt-2 inputs">
+            </div>
+            <div class="col-md-6">
+                <label for="txtColonia" class="mt-2">Colonia:</label><br>
+                <input id="txtColonia" type="text" class="mt-2 inputs">
+            </div>
+            <div class="col-md-6">
+                <label for="txtCP" class="mt-2">Codigo Postal:</label><br>
+                <input id="txtCP" type="text" class="mt-2 inputs">
+            </div>
+            <div class="col-md-6">
+                <label for="txtGPSLa" class="mt-2 col-12">Ubicacion GPS Latitud:</label><br>
+                <input id="txtGPSLa" type="text" class="mt-2 inputs">
+            </div>
+            <div class="col-md-6">
+                <label for="txtGPSLo" class="mt-2 col-12">Ubicacion GPS Longitud:</label><br>
+                <input id="txtGPSLo" type="text" class="mt-2 inputs">
+            </div>
+            <div class="col-md-6">
+                <label for="txtHorarioA" class="mt-2">Horarios Apertura:</label><br>
+                <input id="txtHorarioA" type="text" class="mt-2 inputs">
+            </div>
+            <div class="col-md-6">
+                <label for="txtHorarioC" class="mt-2">Horarios Cierre</label><br>
+                <input id="txtHorarioC" type="text" class="mt-2 inputs">
+            </div>
+            <div class="col-md-6">
+                <label for="txtPagWeb" class="mt-2">URL de pagina web</label><br>
+                <input id="txtPagWeb" type="text" class="mt-2 inputs">
+            </div>
+            <div class="col-md-6">
+                <label for="img" class="mt-2">URL Imagen de la sucursal</label><br>
+                <input id="img" type="text" class="mt-2 inputs">
+            </div>
+        </div>
+        <div class="d-flex justify-content-around mt-2">
+            <button class="btn btn-outline-secondary botonRojo" onclick="moduloSucursal.clean();" id="btnClean"><i
+                    class="bi bi-x-circle"></i> Limpiar</button>
+            <button class="btn btn-outline-secondary botonVerde" data-bs-target="#emergenteC3  " data-bs-toggle="modal"
+                onclick="moduloSucursal.addSucursal();" id="btnAdd"><i class="bi bi-plus-circle"></i> Registrar</button>
+            <button class="btn btn-outline-secondary disabled botonVerde" data-bs-target="#emergenteActualizar"
+                data-bs-toggle="modal" id="btnUpdate"><i class="bi bi-arrow-up-circle"></i> Actualizar</button>
+            <button class="btn btn-outline-secondary disabled botonRojo" data-bs-target="#emergenteEliminar"
+                data-bs-toggle="modal" id="btnDelete2"><i class="bi bi-trash"></i> Eliminar</button>
+        </div> 
+
+    </div>
+    <!--TABLA-->
+    <div class=" card col-lg-7 p-2 m-2 " style="margin-bottom: 10px">
+        <table class="table table-responsive tabla">
+            <thead>
+                <tr>
+                    <th style="background: #E73F0B80;">ID</th>
+                    <th style="background: #E73F0B80;">Foto</th>
+                    <th style="background: #E73F0B80;">Nombre</th>
+                    <th style="background: #E73F0B80;">Direccion</th>
+                    <th style="background: #E73F0B80;">GPS </th>
+                    <th style="background: #E73F0B80;">Horario</th>
+                    <th style="background: #E73F0B80;">URL Pagina</th>
+                    <th style="background: #E73F0B80;">Estátus</th>
+                </tr>
+            </thead>
+            <tbody id="tblSucursal">
+            </tbody>
+        </table>
+    </div>
+</div>
+<!--EMERGENTE PARA ELIMINAR-->
+<div class="modal fade" id="emergenteEliminar" aria-labelledby="exampleModalToggleLabel" tabindex="-1"
+    aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalToggleLabel">¡Eliminar Registro!</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Estas seguro de que quieres eliminar este registro
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#" onclick="moduloSucursal.clean();"
+                    data-bs-toggle="modal">Cancelar</button>
+                <button class=" btn btn-primary" data-bs-toggle="modal" data-bs-target="#emergenteC"
+                    onclick="moduloSucursal.deleteSucursal();" id="btnDelete">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--EMERGENTE DE CONFIRMACION -->
+<div class="modal fade" id="emergenteC" aria-labelledby="exampleModalToggleLabel" tabindex="-1" aria-hidden="true"
+    style="display: none;">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div style="text-align:center" class="modal-body">
+                <i style="font-size: 150px; color: green;" class="bi bi-check2-circle"></i>
+                <h3>Registro Eliminado</h3>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#" data-bs-toggle="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--EMERGENTE DE ACTUALIZAR-->
+<div class="modal fade" id="emergenteActualizar" aria-labelledby="exampleModalToggleLabel" tabindex="-1"
+    aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalToggleLabel">¡Actualizar Registro!</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Estas seguro de que quieres Actualizar este registro
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#" onclick="moduloSucursal.clean();"
+                    data-bs-toggle="modal">Cancelar</button>
+                <button class=" btn btn-primary" data-bs-toggle="modal" data-bs-target="#emergenteC2"
+                    onclick="moduloSucursal.updateSucursal();" id="btnDelete">Actualizar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--EMERGENTE DE CONFIRMACION DE ACTUALIZACION -->
+<div class="modal fade" id="emergenteC2" aria-labelledby="exampleModalToggleLabel" tabindex="-1" aria-hidden="true"
+    style="display: none;">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div style="text-align:center" class="modal-body">
+                <i style="font-size: 150px; color: green;" class="bi bi-check2-circle"></i>
+                <h3>Registro Actualizado</h3>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#" data-bs-toggle="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--EMERGENTE DE CONFIRMACION DE REGISTRO-->
+<div class="modal fade" id="emergenteC3" aria-labelledby="exampleModalToggleLabel" tabindex="-1" aria-hidden="true"
+    style="display: none;">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div style="text-align:center" class="modal-body">
+                <i style="font-size: 150px; color: green;" class="bi bi-check2-circle"></i>
+                <h3>Registro Agregado</h3>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#" data-bs-toggle="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

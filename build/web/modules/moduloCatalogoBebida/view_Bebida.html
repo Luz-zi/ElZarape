@@ -1,0 +1,194 @@
+
+        <!-- Encabezado -->
+        <div class="container-fluid row d-flex justify-content-md-center modulo">
+            <!-- Título del Módulo -->
+            <div>
+                <table class="tabla">
+                        <td>
+                            <h6 class="palabraClave">¿QUÉ ES LO QUE DESEA HACER?</h6>
+                            <h1>Bebida</h1>
+                        </td>
+                        <td colspan="12">
+                            <div class="input-group">
+                                <button  class="btn btn-outline-secondary botonAzul" onclick="moduloCatalogoBebida.searchBebida();">
+                                    <i class="bi bi-search"></i> Buscar
+                                </button>
+                                <input type="text" id="txtBusquedaBebida" class="form-control buscar" aria-label="Text input with segmented dropdown button">
+                                <!-- Filtro de búsqueda según su categoria -->
+                                <select class="filtro" id="filtroPor">
+                                    <option value="">Filtro</option>
+                                    <option value="nombre">Nombre</option>
+                                    <option value="precio">Precio</option>
+                                    <option value="categoria">Categoria</option>
+                                </select>
+                                <!-- Botón para limpiar la barra de búsqueda -->
+                                <button class="btn btn-outline-secondary" onclick="moduloCatalogoBebida.loadTabla();moduloCatalogoBebida.clean();">
+                                    <i class="bi bi-x-circle"> Borrar</i>
+                                </button>
+                                <!-- Botón para imprimir los resultados de búsqueda -->
+                                <button class="btn btn-outline-secondary" id="imprimirBtn" onclick="moduloCatalogoBebida.imprimir();">
+                                    <i class="bi bi-printer"></i> Imprimir
+                                </button>
+                            </div>
+                        </td>
+                </table>
+                </div>
+
+                <div class="card col-lg-4 m-2 p-2">
+                    <table class=" col-lg-2 m-2 p-2">
+                        <tr>
+                            <td>
+                    <h2>GESTIÓN</h2>
+                </td>
+                    <td></td>
+                    <td>
+                        <h2 class="palabraClave"> Bebidas</h2>
+                    </td>
+                    </tr>
+                    </table>
+                    <div class="row g-3 formularioAmarillo d-flex justify-content-around mt-2">
+                    <div class="col-md-6">
+                        <label for="id">ID</label><br>
+                        <input type="text" id="txtIdBebida" name="id" readonly class="mt-2 inputs">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="nombre">Nombre</label><br>
+                        <input type="text" id="txtNombre" name="nombre"class="mt-2 inputs" >
+                    </div>
+                    <div class="col-md-6">
+                        <label for="categoria">Categoria</label><br>
+                        <input type="text" id="txtCategoria" name="categoria" class="mt-2 inputs">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="descripcion">Descripción</label><br>
+                        <input type="text" id="txtDescripcion" name="descripcion" class="mt-2 inputs">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="precio">Precio</label><br>
+                        <input type="text" id="txtPrecio" name="precio" class="mt-2 inputs">
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <label for="img">Imagen</label><br>
+                        <input type="text" id="img" name="img" class="mt-2 inputs">
+                    </div>
+                </div>
+                <div class="d-flex justify-content-around mt-2">
+                    <button class="btn btn-outline-secondary botonRojo" onclick="moduloCatalogoBebida.clean();" id="btnClean"><i
+                        class="bi bi-x-circle"></i> Limpiar</button>
+                <button class="btn btn-outline-secondary botonVerde" data-bs-target="#emergenteC3  " data-bs-toggle="modal"
+                    onclick="moduloCatalogoBebida.addBebida();" id="btnAdd"><i class="bi bi-plus-circle"></i> Registrar</button>
+                <button class="btn btn-outline-secondary disabled botonVerde" data-bs-target="#emergenteActualizar"
+                    data-bs-toggle="modal" id="btnUpdate"><i class="bi bi-arrow-up-circle"></i> Actualizar</button>
+                <button class="btn btn-outline-secondary disabled botonRojo" data-bs-target="#emergenteEliminar"
+                    data-bs-toggle="modal" id="btnDelete2"><i class="bi bi-trash"></i> Eliminar</button>
+                    </div>
+                </div>
+        <div class="card col-lg-7 p-2 m-2">
+            <table class="cable table-responsive tabla">
+                <thead>
+                    <tr> <th style="background: #f4ed6abb;">ID</th>
+                        <th style="background: #f4ed6abb;">Foto</th>
+                        <th style="background: #f4ed6abb;">Nombre </th>
+                        <th style="background: #f4ed6abb;">Descripción </th>
+                        <th style="background: #f4ed6abb;">Precio</th>
+                        <th style="background: #f4ed6abb;">Categoria</th>
+                        <th style="background: #f4ed6abb;">Estatus</th>
+
+                       
+                    </tr>
+                </thead>
+                <tbody id="tblBebida">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="modal fade" id="emergenteEliminar" aria-labelledby="exampleModalToggleLabel" tabindex="-1"
+    aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalToggleLabel">¡Eliminar Registro!</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Estas seguro de que quieres eliminar este registro
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#" onclick="moduloCatalogoBebida.clean();"
+                    data-bs-toggle="modal">Cancelar</button>
+                <button class=" btn btn-primary" data-bs-toggle="modal" data-bs-target="#emergenteC"
+                    onclick="moduloCatalogoBebida.deleteBebida();" id="btnDelete">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--EMERGENTE DE CONFIRMACION -->
+<div class="modal fade" id="emergenteC" aria-labelledby="exampleModalToggleLabel" tabindex="-1" aria-hidden="true"
+    style="display: none;">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div style="text-align:center" class="modal-body">
+                <i style="font-size: 150px; color: green;" class="bi bi-check2-circle"></i>
+                <h3>Registro Eliminado</h3>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#" data-bs-toggle="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--EMERGENTE DE ACTUALIZAR-->
+<div class="modal fade" id="emergenteActualizar" aria-labelledby="exampleModalToggleLabel" tabindex="-1"
+    aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalToggleLabel">¡Actualizar Registro!</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Estas seguro de que quieres Actualizar este registro
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#" onclick="moduloCatalogoBebida.clean();"
+                    data-bs-toggle="modal">Cancelar</button>
+                <button class=" btn btn-primary" data-bs-toggle="modal" data-bs-target="#emergenteC2"
+                    onclick="moduloCatalogoBebida.updateBebida();" id="btnDelete">Actualizar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--EMERGENTE DE CONFIRMACION DE ACTUALIZACION -->
+<div class="modal fade" id="emergenteC2" aria-labelledby="exampleModalToggleLabel" tabindex="-1" aria-hidden="true"
+    style="display: none;">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div style="text-align:center" class="modal-body">
+                <i style="font-size: 150px; color: green;" class="bi bi-check2-circle"></i>
+                <h3>Registro Actualizado</h3>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#" data-bs-toggle="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--EMERGENTE DE CONFIRMACION DE REGISTRO-->
+<div class="modal fade" id="emergenteC3" aria-labelledby="exampleModalToggleLabel" tabindex="-1" aria-hidden="true"
+    style="display: none;">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div style="text-align:center" class="modal-body">
+                <i style="font-size: 150px; color: green;" class="bi bi-check2-circle"></i>
+                <h3>Registro Agregado</h3>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#" data-bs-toggle="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

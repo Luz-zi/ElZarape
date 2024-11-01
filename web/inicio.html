@@ -1,0 +1,151 @@
+<html>
+    <head>
+        <title>EL Zarape</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="INNOVACODE 2024">
+        <meta name="date" content="10/07/2024">
+        <meta name="keywords" content="Proyecto Integrador,ElZarape ">
+        <meta name="description" content="Proyecto Integrador, ElZarape ">
+        <link href="style/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <link href="style/css/mycss.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body class="multiple-backgrounds bodyColor">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-sm nav "  >
+                <div class="container-fluid">
+                    <img width="50" height="50" src="recursos/ZarapeLogo.png" alt=""/>
+
+                    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                        <ul class="navbar-nav">
+                            <li class="nav-item navHover">
+                                <a class="nav-link" href="inicio.html">Inicio</a>
+                            </li>
+                            <li class="nav-item navHover">
+                                <a class="nav-link" href="#" onclick="cargarModuloUsuario();">Usuario</a>
+                            </li>
+                            <li class="nav-item navHover">
+                                <a class="nav-link" href="#" onclick ="cargarModuloCatalogoAlimento();">Alimentos</a>
+                            </li>
+                            <li class="nav-item navHover">
+                                <a class="nav-link" href="#" onclick="cargarModuloBebidas();">Bebidas</a>
+                            </li>
+                            <li class="nav-item navHover">
+                            <li class="nav-item navHover">
+                                <a class="nav-link" href="#" onclick="cargarModuloSucursal();">Sucursales</a>
+                            </li>
+                            <li class="nav-item navHover">
+                                <a class="nav-link" href="#" onclick="cargarModuloCombos();">Combos</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="divs dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img class="imagenPerfil"src="recursos/perfil.png" alt=""/>
+                        <i id="username">.</i>
+                        <script>
+                            // Obtener el nombre de usuario desde localStorage
+                            const username = localStorage.getItem("username");
+                            
+                            // Mostrar el nombre de usuario en la etiqueta <i> si existe
+                            if (username) {
+                                document.getElementById("username").innerText = username;
+                            } else {
+                                // Redirigir al login si no hay usuario en localStorage
+                                window.location.href = 'login.html';
+                            }
+                        </script>
+
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="index.html">Cerrar cuenta</a></li>
+                    </ul>
+                  </div>
+            </nav>
+
+            <div class="container-fluid modulo" id="contenedorPrincipal">
+                <h1>BIENVENIDO</h1>
+                <h1 class="palabraclaveVerde">¿QUE VAMOS A HACER HOY?</h1>
+                <div class="iconos container-fluid row d-flex justify-content-md-center">
+                    <div onclick="cargarModuloCatalogoAlimento();" class="iconoAmarillo">  
+                        <table  style="text-align: center" >
+                            <tr>
+                                <th>
+                                    <img class="imagenMenu" src="recursos/ZarapeLogo.png" alt=""/>   
+                                </th>
+                            </tr>
+                            <td>
+                                <label>ALIMENTOS</label><br>
+                            </td>
+                        </table>
+                    </div>
+                    <div onclick="cargarModuloBebidas();" class="iconoVerde">  
+                        <table  style="text-align: center" >
+                            <tr>
+                                <th>
+                                    <img class="imagenMenu"  src="recursos/ZarapeLogo.png" alt=""/>   
+                                </th>
+                            </tr>
+                            <td>
+                                <label>BEBIDAS</label><br>
+                            </td>
+                        </table>
+                    </div>
+                    <div onclick="cargarModuloCombos();" class="iconoRojo">  
+                        <table  style="text-align: center" >
+                            <tr>
+                                <th>
+                                    <img class="imagenMenu"  src="recursos/ZarapeLogo.png" alt=""/>   
+                                </th>
+                            </tr>
+                            <td>
+                                <label>COMBOS</label><br>
+                            </td>
+                        </table>
+                    </div>
+                    <div onclick="cargarModuloSucursal();" class="iconoGuinda">  
+                        <table  style="text-align: center" >
+                            <tr>
+                                <th>
+                                    <img class="imagenMenu"  src="recursos/ZarapeLogo.png" alt=""/>   
+                                </th>
+                            </tr>
+                            <td>
+                                <label>SUCURSALES</label><br>
+                            </td>
+                        </table>
+                    </div>
+                    <div onclick="cargarModuloUsuario();" class="iconoAmarillo">  
+                        <table  style="text-align: center" >
+                            <tr>
+                                <th>
+                                    <img class="imagenMenu"  src="recursos/ZarapeLogo.png" alt=""/>   
+                                </th>
+                            </tr>
+                            <td>
+                                <label>USUARIOS</label><br>
+                            </td>
+                        </table>
+                    </div>
+
+
+                </div>
+                <!-- Dentro de este div se cargarán todas los módulos de manera dinámica -->
+                <div class="d-flex justify-content-center align-content-center mt-5">
+                </div>
+            </div>
+
+            <footer class="mt-5 p-4 text-black text-center footer">
+                <p>Copyright &copy; to INNOVACODE 2024. All rights reserved.</p>
+            </footer>
+
+        </div>
+        <script src="style/js/bootstrap.bundle.js" type="text/javascript"></script>
+        <script src="js/main.js" type="text/javascript"></script>
+        <script src="js/sesion.js" type="text/javascript"></script>
+    </body>
+</html>

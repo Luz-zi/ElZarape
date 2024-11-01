@@ -1,0 +1,275 @@
+
+<div class="container-fluid row d-flex justify-content-md-center modulo">   
+        <!-- Encabezado -->
+        <div>
+            <table calss="tabla">
+                    <td>
+                        <h6 class="palabraClave">¿QUÉ ES LO QUE DESEA HACER?</h6>
+                        <h1>COMBOS</h1>
+                    </td>
+                    <td colspan="12">
+                        <!-- Sección buscar -->
+                        <div class="input-group">
+                            <button class="btn btn-outline-secondary botonAzul" onclick="moduloCombo.searchCombos();">
+                                <i class="bi bi-search"></i> Buscar</button>
+                            <input type="text" id="txtBusquedaCombos" class="form-control buscar" aria-label="Text input with segmented dropdown button">
+                            <!-- Filtro -->
+                            <select class="filtro" id="filtroPor">
+                                <option value="">ID</option>
+                                <option value="nombre">Nombre</option>
+                            </select>
+                            <button class="btn btn-outline-secondary" onclick="moduloCombo.loadTabla(); moduloCombo.clean();"><i class="bi bi-x-circle"> Limpiar</i></button>
+                            <button class="btn btn-outline-secondary" id="imprimirBtn" onclick="moduloCombo.imprimir();"><i class="bi bi-printer"></i> Imprimir</button>
+                        </div>
+                    </td>
+            </table>
+        </div>
+        <!-- Sección de formulario -->
+        <div class="card col-lg-4 m-2 p-2">
+            
+<div style="display: flex">
+        <div>
+            <h2>Gestión</h2>
+        </div>
+        <div>
+            <h2 class="palabraClave">COMBOS</h2>
+        </div>
+</div>
+            <div class="row g-3 formularioRojo d-flex justify-content-around mt-2">
+                <div class="col-md-6">
+                    <label for="txtNumUnico" class="mt-2">ID Combo</label><br>
+                    <input id="txtNumUnico" type="text" readonly class="mt-2 inputs">
+                </div>
+                <div class="col-md-6">
+                    <label for="txtNombre" class="mt-2">Nombre Combo:</label><br>
+                    <input id="txtNombre" type="text" class="mt-2 inputs">
+                </div>
+                <div class="col-md-6">
+                    <label for="txtDescripcion" class="mt-2">Descripción:</label><br>
+                    <input id="txtDescripcion" type="text" class="mt-2 inputs">
+                </div>
+                <div class="col-md-6">
+                    <label for="txtPrecio" class="mt-2">Precio:</label><br>
+                    <input id="txtPrecio" type="text" class="mt-2 inputs">
+                </div>
+                <div class="col-md-6">
+                <label for="SelectAlimentos" class="mt-2">Tamaño Combo:</label><br>
+                <select class=" mt-2  inputs " id="size">
+                    <option value=""></option>
+                    <option value="Individual 1pz">Individual</option>
+                    <option value="Pareja 2pz">Pareja</option>
+                    <option value="Familiar 5pz">Familiar</option>
+                    
+                </select>
+                </div>
+                <div class="col-md-6">
+                <label for="SelectAlimentos" class="mt-2">Alimentos:</label><br>
+                <select class=" mt-2  inputs " id="alimento">
+                    <option value=""></option>
+                    <option value="Chilaquiles">Chilaquiles</option>
+                    <option value="Chile relleno">Chile relleno</option>
+                    <option value="Mole con pollo">Mole con pollo</option>
+                    <option value="Huevo a la Mexicana">Huevo a la Mexicana</option>  
+                    <option value="Pozole">Pozole</option>
+                </select>
+                </div>
+                <div class="col-md-6">
+                <label for="SelectBebidas" class="mt-2">Bebidas:</label><br>
+                <select class="filtro mt-2  inputs" id="bebidas">
+                    <option value=""></option>
+                    <option value="Agua">Agua</option>
+                    <option value="Refresco">Refresco</option>
+                    <option value="Cafe  Americano">Cafe Americano</option>
+                    <option value="Jugo de Naranja">Jugo de Naranja</option>
+                </select>
+                </div>
+                <div class="col-md-6">
+                <label for="SelectPostres" class="mt-2">Postres:</label>
+                <select class="filtro mt-2  inputs " id="postres">
+                    <option value=""></option>
+                    <option value="Arroz con leche">Arroz con leche</option>
+                    <option value="Ensalada de manzana">Ensalada de manzana</option>
+                </select>
+                </div>
+
+                <div>
+                <div class="col-md-6">
+                    <label for="img" class="mt-2">URL Imagen del Combo</label><br>
+                    <input id="img" type="text" class="mt-2 inputs">
+                </div>
+            </div>
+            </div>
+                <div class="d-flex justify-content-around mt-2">
+                    <button class="btn btn-outline-secondary botonRojo" onclick="moduloCombo.clean();" id="btnClean"><i
+                            class="bi bi-x-circle"></i> Limpiar</button>
+                    <button class="btn btn-outline-secondary botonVerde " data-bs-target="#emergenteC3  " data-bs-toggle="modal"
+                        onclick="moduloCombo.addCombos();" id="btnAdd"><i class="bi bi-plus-circle"></i> Registrar</button>
+                    <button class="btn btn-outline-secondary disabled botonVerde" data-bs-target="#emergenteActualizar"
+                        data-bs-toggle="modal" id="btnUpdate"><i class="bi bi-arrow-up-circle"></i> Actualizar</button>
+                    <button class="btn btn-outline-secondary disabled botonRojo" data-bs-target="#emergenteEliminar"
+                        data-bs-toggle="modal" id="btnDelete2"><i class="bi bi-trash"></i> Eliminar</button>
+                </div> 
+        </div>
+        <!-- Tabla de combos -->
+        <div class="card col-lg-7 p-2 m-2" >
+            <table class="table table-responsive tabla" style="width: 100%;">
+                <thead>
+                    <tr>
+                        <th style="background: #a1200c8b;">ID</th>
+                        <th style="background: #a1200c8b;">Foto</th>
+                        <th style="background: #a1200c8b;">Nombre</th>
+                        <th style="background: #a1200c8b;">Tamaño</th>
+                        <th style="background: #a1200c8b;">Alimentos</th>
+                        <th style="background: #a1200c8b;">Bebidas</th>
+                        <th style="background: #a1200c8b;">Postres</th>
+                        <th style="background: #a1200c8b;">Descripción</th>
+                        <th style="background: #a1200c8b;">Precio</th>
+                        <th style="background: #a1200c8b;">Estatus</th>
+                    </tr>
+                </thead>
+                <tbody id="tblCombos">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modales de confirmación -->
+    <div class="modal fade" id="emergenteEliminar" aria-labelledby="exampleModalToggleLabel" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalToggleLabel">¡Eliminar Registro!</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ¿Estás seguro de que quieres eliminar este registro?
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" data-bs-dismiss="modal">Cancelar</button>
+                    <button class="btn btn-primary" data-bs-dismiss="modal" onclick="moduloCombo.deleteCombos();" id="btnDelete">Eliminar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="emergenteC" aria-labelledby="exampleModalToggleLabel" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <i style="font-size: 150px; color: green;" class="bi bi-check2-circle"></i>
+                    <h3>Registro Eliminado</h3>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="emergenteActualizar" aria-labelledby="exampleModalToggleLabel" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalToggleLabel">¡Actualizar Registro!</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ¿Estás seguro de que quieres actualizar este registro?
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" data-bs-dismiss="modal">Cancelar</button>
+                    <button class="btn btn-primary" data-bs-dismiss="modal" onclick="moduloCombo.updateCombos();" id="btnUpdateConfirm">Actualizar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--EMERGENTE PARA ELIMINAR-->
+<div class="modal fade" id="emergenteEliminar" aria-labelledby="exampleModalToggleLabel" tabindex="-1"
+    aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalToggleLabel">¡Eliminar Registro!</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Estas seguro de que quieres eliminar este registro
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#" onclick="moduloCombos.clean();"
+                    data-bs-toggle="modal">Cancelar</button>
+                <button class=" btn btn-primary" data-bs-toggle="modal" data-bs-target="#emergenteC"
+                    onclick="moduloCombos.deleteCombos();" id="btnDelete">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--EMERGENTE DE CONFIRMACION -->
+<div class="modal fade" id="emergenteC" aria-labelledby="exampleModalToggleLabel" tabindex="-1" aria-hidden="true"
+    style="display: none;">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div style="text-align:center" class="modal-body">
+                <i style="font-size: 150px; color: green;" class="bi bi-check2-circle"></i>
+                <h3>Registro Eliminado</h3>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#" data-bs-toggle="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--EMERGENTE DE ACTUALIZAR-->
+<div class="modal fade" id="emergenteActualizar" aria-labelledby="exampleModalToggleLabel" tabindex="-1"
+    aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalToggleLabel">¡Actualizar Registro!</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Estas seguro de que quieres Actualizar este registro
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#" onclick="moduloSucursal.clean();"
+                    data-bs-toggle="modal">Cancelar</button>
+                <button class=" btn btn-primary" data-bs-toggle="modal" data-bs-target="#emergenteC2"
+                    onclick="moduloCombos.updateCombos();" id="btnDelete">Actualizar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--EMERGENTE DE CONFIRMACION DE ACTUALIZACION -->
+<div class="modal fade" id="emergenteC2" aria-labelledby="exampleModalToggleLabel" tabindex="-1" aria-hidden="true"
+    style="display: none;">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div style="text-align:center" class="modal-body">
+                <i style="font-size: 150px; color: green;" class="bi bi-check2-circle"></i>
+                <h3>Registro Actualizado</h3>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#" data-bs-toggle="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--EMERGENTE DE CONFIRMACION DE REGISTRO-->
+<div class="modal fade" id="emergenteC3" aria-labelledby="exampleModalToggleLabel" tabindex="-1" aria-hidden="true"
+    style="display: none;">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div style="text-align:center" class="modal-body">
+                <i style="font-size: 150px; color: green;" class="bi bi-check2-circle"></i>
+                <h3>Registro Agregado</h3>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#" data-bs-toggle="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

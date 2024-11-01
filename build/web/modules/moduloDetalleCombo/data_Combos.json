@@ -1,0 +1,38 @@
+[
+    {
+        "idCombo": "001",
+        "nombre": "Rinconcito Mexicano",
+        "size":"Individual 1pz",
+        "descripcion": "Incluye una selección de nuestros mejores platillos y bebidas.",
+        "precio": "150",
+        "alimentos": "Chilaquiles",
+        "bebidas": "Refresco",
+        "postres":"Arroz con leche",
+        "foto": "recursos/imagen.jpeg",
+        "estatus": "Activo"
+    },
+    {
+        "idCombo": "002",
+        "nombre": "Sabor a Tradición",
+        "size":"Pareja 2pz",
+        "descripcion": "Ideal para los enamorados que aman el sazon mexicano",
+        "precio": "120",
+        "alimentos": "Chile relleno",
+        "bebidas": "Jugo de Naranja",
+        "postres":"Arroz con leche",
+        "foto": "recursos/combo2.jpg",
+        "estatus": "Activo"
+    },
+    {
+        "idCombo": "003",
+        "nombre": "Delicias del Pueblo",
+        "size":"Familiar 5pz",
+        "descripcion": "Un combo grande para compartir con la familia.",
+        "precio": "250",
+        "alimentos": "Pozole",
+        "bebidas": "Refresco",
+        "postres":"Ensalada de manzana",
+        "foto": "recursos/combo3.jpg",
+        "estatus": "Activo"
+    }
+]

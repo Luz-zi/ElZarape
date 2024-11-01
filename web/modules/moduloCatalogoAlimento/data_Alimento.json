@@ -1,0 +1,73 @@
+[    
+    {
+        
+        "idAlimento" : "8d01",
+        "imagen": "recursos/chilaquiles.jpg",
+        
+        "nombre": "Chilaquiles",
+        "categoria": "Desayuno", 
+        "descripcion" : "Guiso compuesto de huevo frito, tortillas de maíz cortadas en triángulos, fritas y, posteriormente, cocidas en salsa", 
+        "precio" : "70", 
+        "estatus": "Activo"
+    },
+    {
+        "idAlimento" : "8d02",
+        "imagen" : "recursos/chileRelleno.jpg",
+        "nombre": "Chile relleno", 
+        "categoria": "Almuerzo", 
+        "descripcion" : "Chile poblano relleno de picadillo, bañado salsa de crema con granada acompañado de arroz", 
+        "precio" : "60", 
+        "estatus": "Activo"
+    },
+    {
+        "idAlimento" : "8d03",
+        "imagen" : "recursos/arroz.jpg",
+        "nombre": "Arroz con leche", 
+        "categoria": "Postre", 
+        "descripcion" : "Postre casero y cremoso elaborado principalmente con arroz y leche con un toque de canela", 
+        "precio" : "30", 
+        "estatus": "Activo"
+    },
+    
+        {
+        "idAlimento" : "8d04",
+        "imagen" : "recursos/pozole.jpg", 
+        "nombre": "Pozole", 
+        "categoria": "Platillo", 
+        "descripcion" : "Pozole rojo con carne de puerco acompañado de tostadas", 
+        "precio" : "80", 
+        "estatus": "Activo"
+    },
+    
+         {
+        "idAlimento" : "8d05",
+        "imagen" : "recursos/ensaladaManzana.jpg", 
+        "nombre": "Ensalada de manzana", 
+        "categoria": "Postre", 
+        "descripcion" : "Mezcla de crema con trozos de fresas, manzanas, nuez", 
+        "precio" : "25", 
+        "estatus": "Activo"
+    },
+    
+    {
+        "idAlimento" : "8d06",
+        "imagen" : "recursos/mole.jpg", 
+        "nombre": "Mole con pollo", 
+        "categoria": "Platillo", 
+        "descripcion" : "Platillo de mole amargo con pollo desebrado, acompañado de arroz", 
+        "precio" : "60", 
+        "estatus": "Activo"
+    },
+    
+        {
+        "idAlimento" : "8d07",
+        "imagen" : "recursos/huevoMexicana.jpg", 
+        "nombre": "Huevo a la Mexicana", 
+        "categoria": "Platillo", 
+        "descripcion" : "Guiso de huevos revueltos con trozos de jitomate, cebolla, chile serrano y cilantro", 
+        "precio" : "60", 
+        "estatus": "Activo"
+    }
+    
+ 
+]

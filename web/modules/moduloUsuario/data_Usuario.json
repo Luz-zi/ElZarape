@@ -1,0 +1,22 @@
+[
+    {
+        "idUsuario": "1",
+        "nombre": "Lucia Guadalupe Muñoz Rodriguez",
+        "contraseña": "nnurnf587ee$",
+        "estatus": "Activo"
+     
+    },
+    {
+        "idUsuario": "2",
+        "nombre": "Igancio Javier Rea Rocha",
+        "contraseña": "4747+/d$/)*-",
+        "estatus": "Activo"
+        
+    },
+    {
+        "idUsuario": "3",
+        "nombre": "Juan Diego Garcia Tena",
+        "contraseña": "fbb44444{fef",
+        "estatus": "Activo"
+    }
+]

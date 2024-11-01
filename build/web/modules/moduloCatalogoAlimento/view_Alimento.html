@@ -1,0 +1,183 @@
+<!-- Modulo de Alimento -->
+<div class="container-fluid row d-flex justify-content-md-center modulo">
+    <div>
+        <table class="tabla">
+            <td>
+                <h6 class="palabraClave" style="text-align: left; color:#BBCF4A">¿QUÉ ES LO QUE DESEA HACER?</h6>
+                <h1>ALIMENTOS</h1>
+            </td>
+            <td colspan="12">
+
+                <!--Seccion buscar-->
+                <div class="input-group">
+                    <button class="btn btn-outline-secondary botonAzul" onclick="moduloCatalogoAlimento.searchAlimento();"><i
+                            class="bi bi-search"></i> buscar</button>
+                    <input type="text" id="txtBusquedaAlimento" class=" form-control buscar"
+                           aria-label="Text input with segmented dropdown button">
+                    <!--Filtro-->
+                    <select class="filtro" id="filtroPor">
+                        <option value="nombre">Nombre</option>
+                        <option value="categoria">Categoría</option>
+                    </select>
+
+                    <button class="btn btn-outline-secondary "
+                            onclick="moduloCatalogoAlimento.loadTabla();moduloCatalogoAlimento.clean();"><i
+                            class="bi bi-x-circle"> Limpiar</i></button>
+
+                    <button class="btn btn-outline-secondary " id="imprimirBtn" onclick="moduloCatalogoAlimento.imprimir();"><i
+                            class="bi bi-printer"></i> Imprimir</button>
+                </div>
+            </td>
+        </table>
+    </div>
+    <!--Seccion de formulario-->
+    <div class="card col-lg-4 m-2 p-2 ">
+<div style="display: flex">
+        <div>
+            <h2 style="margin-top: 11px;">Gestión</h2>
+        </div>
+        <div>
+            <h2 style="margin-top: 11px; color:#BBCF4A; margin-left: 7px">Alimentos</h2>
+        </div>
+
+</div>
+        <div class="row g-3 formulario d-flex justify-content-around mt-2" style="background-color: #BBCF4A; margin-top: 10px;">
+            <div class="col-md-6">
+
+                <label for="txtNumUnico" class="mt-2 ">Id Alimento</label><br>
+                <input id="txtNumUnico" style="border-radius: 8px; background-color:aliceblue;" type="text"  readonly class="mt-2">
+            </div>
+            <div class="col-md-6">
+                <label for="txtNombre" class="mt-2">Nombre del platillo:</label><br>
+                <input id="txtNombre" style="border-radius: 8px" type="text"  class="mt-2">
+            </div>
+            <div class="col-md-6">
+                <label for="txtCategoria" class="mt-2">Categoría:</label><br>
+                <input id="txtCategoria"  style="border-radius: 8px" type="text"  class="mt-2">
+            </div>
+            <div class="col-md-6">
+                <label for="txtDescripcion" class="mt-2">Descripción:</label><br>
+                <input id="txtDescripcion" style="border-radius: 8px" type="text"  class="mt-2">
+            </div>
+            <div class="col-md-6">
+                <label for="txtPrecio" class="mt-2 col-12">Precio:</label><br> 
+                <input id="txtPrecio" style="border-radius: 8px" type="textx" class="mt-2">
+            </div>
+            <div class="col-md-6">
+                <label for="txtImagen" class="mt-2">Imagen:</label><br>
+                <input id="txtImagen" style="border-radius: 8px" type="text"  class="mt-2"><br>
+            </div>
+
+        </div>
+           <div class="d-flex justify-content-around mt-2">
+
+            <button class="btn btn-outline-secondary botonRojo" onclick="moduloCatalogoAlimento.clean();" id="btnClean"><i
+                    class="bi bi-x-circle"></i> Limpiar</button>
+            <button class="btn btn-outline-secondary botonVerde" data-bs-target="#emergenteC3  " data-bs-toggle="modal" onclick="moduloCatalogoAlimento.addAlimento();" id="btnAdd"><i
+                    class="bi bi-plus-circle"></i> Registrar</button>
+            <button class="btn btn-outline-secondary disabled botonVerde" data-bs-target="#emergenteActualizar" data-bs-toggle="modal"
+                    id="btnUpdate"><i class="bi bi-arrow-up-circle"></i> Actualizar</button>
+            <button class="btn btn-outline-secondary disabled botonRojo" data-bs-target="#emergenteEliminar" data-bs-toggle="modal"
+                  id="btnDelete2"><i class="bi bi-trash"></i> Eliminar</button>
+        </div>
+    </div>
+
+        <div class=" card col-lg-7 p-2 m-2 " style="margin-bottom: 10px">
+            <table class="table table-responsive tabla" style="width: 100%;">
+                <thead style="background-color: #BBCF4A;">
+                    <tr>
+                        <th style="background-color: #BBCF4A;">Id</th>
+                        <th style="background-color: #BBCF4A;">Imagen</th>
+                        <th style="background-color: #BBCF4A;">Nombre</th>
+                        <th style="background-color: #BBCF4A;">Categoría</th>
+                        <th style="background-color: #BBCF4A;">Descripción</th>
+                        <th style="background-color: #BBCF4A;">Precio</th>
+                        <th style="background-color: #BBCF4A;">Estatus</th>
+                    </tr>
+                </thead>
+                <tbody id="tblAlimento">
+                </tbody>
+            </table>
+        </div>
+    </div>
+<div class="modal fade" id="emergenteEliminar" aria-labelledby="exampleModalToggleLabel" tabindex="-1"
+     aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalToggleLabel">¡Eliminar Registro!</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Estas seguro de que quieres eliminar este registro
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#" onclick="moduloCatalogoAlimento.clean();" data-bs-toggle="modal">Cancelar</button>
+                <button class=" btn btn-primary" data-bs-toggle="modal"data-bs-target="#emergenteC" onclick="moduloCatalogoAlimento.deleteAlimento();"
+                        id="btnDelete">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="emergenteC" aria-labelledby="exampleModalToggleLabel" tabindex="-1"
+     aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div style="text-align:center" class="modal-body">
+                <i  style="font-size: 150px; color: green;" class="bi bi-check2-circle"></i>
+                <h3>Registro Eliminado</h3>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#" data-bs-toggle="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="emergenteActualizar" aria-labelledby="exampleModalToggleLabel" tabindex="-1"
+     aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalToggleLabel">¡Actualizar Registro!</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Estas seguro de que quieres Actualizar este registro
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#" onclick="moduloCatalogoAlimento.clean();" data-bs-toggle="modal">Cancelar</button>
+                <button class=" btn btn-primary" data-bs-toggle="modal" data-bs-target="#emergenteC2" onclick="moduloCatalogoAlimento.updateAlimento();"
+                        id="btnDelete">Actualizar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="emergenteC2" aria-labelledby="exampleModalToggleLabel" tabindex="-1"
+     aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div style="text-align:center" class="modal-body">
+                <i  style="font-size: 150px; color: green;" class="bi bi-check2-circle"></i>
+                <h3>Registro Actualizado</h3>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#" data-bs-toggle="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="emergenteC3" aria-labelledby="exampleModalToggleLabel" tabindex="-1"
+     aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div style="text-align:center" class="modal-body">
+                <i  style="font-size: 150px; color: green;" class="bi bi-check2-circle"></i>
+                <h3>Registro Agregado</h3>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#" data-bs-toggle="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
