@@ -16,7 +16,7 @@
     if (usuarios[username] && usuarios[username] === password) {
     // Guardar el nombre de usuario en localStorage
     localStorage.setItem("username", username);
-    window.location.href= 'inicio.html';
+    window.location.href= 'web/inicio.html';
     
 }else {
     let loginFailDiv = document.getElementById("loginFail");
